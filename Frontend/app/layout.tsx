@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Amiri, Reem_Kufi } from "next/font/google";
 import "./globals.css";
-import PWARegister from "./components/PWARegister";
+import ClientLayoutWrapper from "./components/ClientLayoutWrapper";
 
 const amiri = Amiri({
   subsets: ["arabic"],
@@ -39,8 +39,9 @@ export default function RootLayout({
       <body
         className={`${amiri.variable} ${reemKufi.variable} bg-paper text-ink font-sans`}
       >
-        <PWARegister />
-        {children}
+        <ClientLayoutWrapper>
+          {children}
+        </ClientLayoutWrapper>
       </body>
     </html>
   );
