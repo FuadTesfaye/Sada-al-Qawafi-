@@ -1,43 +1,43 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion, Variants, Transition } from "framer-motion";
 import { Feather, Scroll, Bot, BookHeart, PenLine, Menu, X, Search, Moon } from "lucide-react";
 
 // ─────────────────────────────────────────────
 // ANIMATION VARIANTS
 // ─────────────────────────────────────────────
 
-const navVariant = {
+const navVariant: Variants = {
   hidden: { y: -80, opacity: 0 },
   visible: {
     y: 0,
     opacity: 1,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
   },
 };
 
-const drawerVariant = {
+const drawerVariant: Variants = {
   hidden: { x: "100%", opacity: 0 },
   visible: {
     x: 0,
     opacity: 1,
-    transition: { type: "spring", damping: 28, stiffness: 220 },
+    transition: { type: "spring" as const, damping: 28, stiffness: 220 },
   },
   exit: {
     x: "100%",
     opacity: 0,
-    transition: { duration: 0.25, ease: "easeIn" },
+    transition: { duration: 0.25, ease: "easeIn" as const },
   },
 };
 
-const overlayVariant = {
+const overlayVariant: Variants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { duration: 0.25 } },
   exit: { opacity: 0, transition: { duration: 0.2 } },
 };
 
-const staggerContainer = {
+const staggerContainer: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -46,45 +46,45 @@ const staggerContainer = {
 };
 
 // Ink bleed: text reveals from left using clipPath
-const inkBleedTitle = {
+const inkBleedTitle: Variants = {
   hidden: { clipPath: "inset(0 100% 0 0 round 4px)", opacity: 0.6 },
   visible: {
     clipPath: "inset(0 0% 0 0 round 4px)",
     opacity: 1,
-    transition: { duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.3 },
+    transition: { duration: 1.4, ease: [0.16, 1, 0.3, 1] as const, delay: 0.3 },
   },
 };
 
 // Subtitle bleeds in from bottom
-const inkBleedSubtitle = {
+const inkBleedSubtitle: Variants = {
   hidden: { clipPath: "inset(100% 0 0 0 round 4px)", opacity: 0 },
   visible: {
     clipPath: "inset(0% 0 0 0 round 4px)",
     opacity: 1,
-    transition: { duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.9 },
+    transition: { duration: 1.1, ease: [0.16, 1, 0.3, 1] as const, delay: 0.9 },
   },
 };
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 28 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] as const },
   },
 };
 
-const inkwellVariant = {
+const inkwellVariant: Variants = {
   hidden: { scale: 0.7, opacity: 0 },
   visible: {
     scale: 1,
     opacity: 1,
-    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 1.6 },
+    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const, delay: 1.6 },
   },
 };
 
 // Floating Arabic ahruf — individual letter animation
-const letterFloat = (delay: number, duration: number) => ({
+const letterFloat = (delay: number, duration: number): any => ({
   animate: {
     y: [0, -22, 0],
     opacity: [0, 0.22, 0],
@@ -93,7 +93,7 @@ const letterFloat = (delay: number, duration: number) => ({
       duration,
       delay,
       repeat: Infinity,
-      ease: "easeInOut",
+      ease: "easeInOut" as const,
     },
   },
 });
@@ -176,7 +176,7 @@ function Navbar() {
             <a href="/" className="flex items-center gap-2.5 group" aria-label="Sada al-Qawafi Home">
               <motion.span
                 whileHover={{ rotate: -12, scale: 1.15 }}
-                transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                transition={{ type: "spring" as const, stiffness: 300, damping: 15 }}
               >
                 <Feather className="w-[22px] h-[22px] text-gold" strokeWidth={1.6} />
               </motion.span>
@@ -483,7 +483,7 @@ function InkwellButton() {
                   duration: 1.8,
                   delay: i * 0.38,
                   repeat: Infinity,
-                  ease: "easeOut",
+                  ease: "easeOut" as const,
                 }
               : { duration: 0.2 }
           }
@@ -500,7 +500,7 @@ function InkwellButton() {
           border: "1px solid rgba(212,175,55,0.25)",
         }}
         animate={{ scale: [1, 1.06, 1], opacity: [0.4, 0.7, 0.4] }}
-        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" as const }}
       />
 
       {/* Main Inkwell Circle */}
@@ -511,7 +511,7 @@ function InkwellButton() {
         onMouseLeave={() => setHovered(false)}
         whileHover={{ scale: 1.08 }}
         whileTap={{ scale: 0.94 }}
-        transition={{ type: "spring", stiffness: 300, damping: 18 }}
+        transition={{ type: "spring" as const, stiffness: 300, damping: 18 }}
         className="relative z-10 w-28 h-28 rounded-full flex flex-col items-center justify-center gap-1.5 cursor-pointer"
         style={{
           background:
@@ -717,7 +717,7 @@ function HeroSection() {
           className="w-px h-8 block"
           style={{ background: "linear-gradient(to bottom, var(--gold-dim), transparent)" }}
           animate={{ scaleY: [0.6, 1, 0.6], opacity: [0.4, 0.9, 0.4] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" as const }}
         />
       </motion.div>
     </section>
