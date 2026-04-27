@@ -1,0 +1,28 @@
+{
+  "HomePage": {
+    "title": "Sada al-Qawafi",
+    "description": "The Premium Arabic Poetry Platform",
+    "hero": {
+      "title": "Echoes of the Desert, Soul of the Verse",
+      "subtitle": "Discover the timeless beauty of Arabic poetry in a premium, immersive experience.",
+      "cta": "Start Journey"
+    },
+    "features": {
+      "title": "Crafted for Connoisseurs",
+      "library": "Digital Library",
+      "desk": "Writer's Desk",
+      "community": "Poetic Circles"
+    }
+  },
+  "Navigation": {
+    "home": "Home",
+    "library": "Library",
+    "poets": "Poets",
+    "subscription": "Membership"
+  },
+  "LanguageSwitcher": {
+    "label": "Language",
+    "en": "English",
+    "ar": "العربية"
+  }
+}
