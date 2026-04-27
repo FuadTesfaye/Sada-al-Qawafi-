@@ -12,6 +12,16 @@
       "library": "Digital Library",
       "desk": "Writer's Desk",
       "community": "Poetic Circles"
+    },
+    "FeaturedPoets": {
+      "title": "Eternal Voices",
+      "subtitle": "Poets who left an imprint on the soul",
+      "viewAll": "View All",
+      "subscribers": "Subscribers"
+    },
+    "FeaturedDiwans": {
+      "title": "Manuscripts & Collections",
+      "browse": "Browse Manuscript"
     }
   },
   "Navigation": {

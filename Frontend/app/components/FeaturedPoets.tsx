@@ -2,16 +2,46 @@
 
 import { motion } from "framer-motion";
 import { Users } from "lucide-react";
+import { useTranslations, useLocale } from 'next-intl';
 
-const poets = [
-  { id: 1, name: "محمود درويش", subs: "125K", tagline: "على هذه الأرض ما يستحق الحياة" },
-  { id: 2, name: "نزار قباني", subs: "98K", tagline: "قصائد متوحشة" },
-  { id: 3, name: "المتنبي", subs: "200K", tagline: "مالئ الدنيا وشاغل الناس" },
-  { id: 4, name: "أحمد شوقي", subs: "150K", tagline: "أمير الشعراء" },
-  { id: 5, name: "فدوى طوقان", subs: "85K", tagline: "رحلة جبلية رحلة صعبة" },
-];
+
 
 export default function FeaturedPoets() {
+  const t = useTranslations('FeaturedPoets');
+  const locale = useLocale();
+
+  const poets = [
+    { 
+      id: 1, 
+      name: locale === 'ar' ? "محمود درويش" : "Mahmoud Darwish", 
+      subs: "125K", 
+      tagline: locale === 'ar' ? "على هذه الأرض ما يستحق الحياة" : "On this earth there is what deserves life" 
+    },
+    { 
+      id: 2, 
+      name: locale === 'ar' ? "نزار قباني" : "Nizar Qabbani", 
+      subs: "98K", 
+      tagline: locale === 'ar' ? "قصائد متوحشة" : "Wild Poems" 
+    },
+    { 
+      id: 3, 
+      name: locale === 'ar' ? "المتنبي" : "Al-Mutanabbi", 
+      subs: "200K", 
+      tagline: locale === 'ar' ? "مالئ الدنيا وشاغل الناس" : "Filling the world and occupying people" 
+    },
+    { 
+      id: 4, 
+      name: locale === 'ar' ? "أحمد شوقي" : "Ahmed Shawqi", 
+      subs: "150K", 
+      tagline: locale === 'ar' ? "أمير الشعراء" : "Prince of Poets" 
+    },
+    { 
+      id: 5, 
+      name: locale === 'ar' ? "فدوى طوقان" : "Fadwa Tuqan", 
+      subs: "85K", 
+      tagline: locale === 'ar' ? "رحلة جبلية رحلة صعبة" : "A Mountainous Journey, A Difficult Journey" 
+    },
+  ];
   return (
     <section className="py-20 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
@@ -23,14 +53,14 @@ export default function FeaturedPoets() {
         >
           <div>
             <h2 className="text-3xl md:text-4xl font-bold text-ink-wet font-heading mb-3">
-              أصوات خالدة
+              {t('title')}
             </h2>
             <p className="text-ink-faded font-sans text-lg italic opacity-80">
-              شعراء تركوا أثراً في الوجدان
+              {t('subtitle')}
             </p>
           </div>
           <button className="text-gold hover:text-gold-dim transition-colors font-sans text-sm tracking-widest border-b border-gold/30 pb-1">
-            عرض الكل
+            {t('viewAll')}
           </button>
         </motion.div>
 
@@ -82,7 +112,7 @@ export default function FeaturedPoets() {
 
                   <div className="flex items-center gap-2 text-ink-faded/80 font-sans text-xs bg-paper-aged px-3 py-1.5 rounded-full border border-gold/10">
                     <Users className="w-3.5 h-3.5" />
-                    <span>{poet.subs} مشترك</span>
+                    <span>{poet.subs} {t('subscribers')}</span>
                   </div>
                 </div>
               </div>

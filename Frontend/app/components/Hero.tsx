@@ -3,6 +3,9 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useReducedMotion, Variants, Transition } from "framer-motion";
 import { Feather, Scroll, Bot, BookHeart, PenLine, Menu, X, Search, Moon } from "lucide-react";
+import { useTranslations, useLocale } from 'next-intl';
+import { Link } from '@/i18n/routing';
+import LanguageSwitcher from "./LanguageSwitcher";
 
 // ─────────────────────────────────────────────
 // ANIMATION VARIANTS
@@ -128,8 +131,15 @@ const floatingAhruf = [
 // ─────────────────────────────────────────────
 
 function Navbar() {
+  const t = useTranslations('Navigation');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  const navLinks = [
+    { label: t('library'), arabic: "الديوان", icon: Scroll, href: "#library" },
+    { label: t('poets'), arabic: "الكاتب", icon: Bot, href: "#poets" },
+    { label: t('subscription'), arabic: "مجموعتي", icon: BookHeart, href: "#subscription" },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -224,6 +234,9 @@ function Navbar() {
               >
                 <Search className="w-4 h-4" strokeWidth={1.7} />
               </button>
+
+              {/* Language Switcher */}
+              <LanguageSwitcher />
 
               {/* Wax-Seal "Write" CTA */}
               <motion.button
@@ -586,6 +599,9 @@ function GrainOverlay() {
 // ─────────────────────────────────────────────
 
 function HeroSection() {
+  const t = useTranslations('HomePage.hero');
+  const locale = useLocale();
+
   return (
     <section
       id="hero"
@@ -650,7 +666,7 @@ function HeroSection() {
               textShadow: "2px 4px 20px rgba(44,44,44,0.12)",
             }}
           >
-            صدى القوافي
+            {locale === 'en' ? "Sada al-Qawafi" : "صدى القوافي"}
           </motion.h1>
         </div>
 
@@ -677,7 +693,7 @@ function HeroSection() {
               letterSpacing: "0.04em",
             }}
           >
-            Where Ink Meets Eternity.
+            {t('subtitle')}
           </motion.p>
         </div>
 

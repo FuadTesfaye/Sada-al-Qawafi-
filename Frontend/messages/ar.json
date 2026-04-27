@@ -12,6 +12,16 @@
       "library": "المكتبة الرقمية",
       "desk": "مكتب الشاعر",
       "community": "حلقات الشعر"
+    },
+    "FeaturedPoets": {
+      "title": "أصوات خالدة",
+      "subtitle": "شعراء تركوا أثراً في الوجدان",
+      "viewAll": "عرض الكل",
+      "subscribers": "مشترك"
+    },
+    "FeaturedDiwans": {
+      "title": "مخطوطات ودواوين",
+      "browse": "تصفح المخطوطة"
     }
   },
   "Navigation": {
