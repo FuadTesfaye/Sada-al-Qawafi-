@@ -34,5 +34,26 @@
     "label": "Language",
     "en": "English",
     "ar": "العربية"
+  },
+  "Login": {
+    "title": "Entrance to the Library",
+    "subtitle": "Provide your credentials to access the archives",
+    "email": "Email Address",
+    "password": "Password",
+    "signIn": "Sign In",
+    "forgotPassword": "Forgotten Credentials?",
+    "noAccount": "New Scribe?",
+    "signUp": "Register Here"
+  },
+  "Signup": {
+    "title": "Register as a Scribe",
+    "subtitle": "Join the circle of eternal voices",
+    "name": "Full Name",
+    "penName": "Poetic Pen Name",
+    "email": "Email Address",
+    "password": "Password",
+    "signUp": "Initiate Membership",
+    "alreadyMember": "Already a Scribe?",
+    "signIn": "Sign In"
   }
 }

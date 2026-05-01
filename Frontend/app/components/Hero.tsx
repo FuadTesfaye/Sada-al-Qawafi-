@@ -238,40 +238,51 @@ function Navbar() {
                 <Search className="w-4 h-4" strokeWidth={1.7} />
               </button>
 
+              {/* Login Link */}
+              <Link 
+                href="/login"
+                className="text-sm font-bold text-ink-faded hover:text-gold transition-colors uppercase tracking-[0.1em]"
+                style={{ fontFamily: "var(--font-amiri), serif" }}
+              >
+                Sign In
+              </Link>
+
               {/* Language Switcher */}
               <LanguageSwitcher />
 
               {/* Wax-Seal "Write" CTA */}
-              <motion.button
-                whileHover={{ scale: 1.05, y: -1 }}
-                whileTap={{ scale: 0.97 }}
-                transition={{ type: "spring", stiffness: 350, damping: 18 }}
-                className="relative flex items-center gap-1.5 px-5 py-2 rounded-full overflow-hidden"
-                style={{
-                  border: "2px solid var(--gold)",
-                  color: "var(--gold)",
-                  fontFamily: "var(--font-reem), sans-serif",
-                  fontSize: "0.875rem",
-                  letterSpacing: "0.06em",
-                  background: "transparent",
-                  boxShadow: "0 0 0 0 rgba(212,175,55,0)",
-                  transition: "box-shadow 0.3s ease",
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.boxShadow =
-                    "0 4px 20px rgba(212,175,55,0.35), inset 0 0 16px rgba(212,175,55,0.08)";
-                  (e.currentTarget as HTMLElement).style.background =
-                    "rgba(212,175,55,0.08)";
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.boxShadow = "none";
-                  (e.currentTarget as HTMLElement).style.background = "transparent";
-                }}
-              >
-                <PenLine className="w-3.5 h-3.5" strokeWidth={1.8} />
-                <span>اكتب</span>
-                <span className="text-xs opacity-60 ml-0.5">Write</span>
-              </motion.button>
+              <Link href="/signup">
+                <motion.button
+                  whileHover={{ scale: 1.05, y: -1 }}
+                  whileTap={{ scale: 0.97 }}
+                  transition={{ type: "spring", stiffness: 350, damping: 18 }}
+                  className="relative flex items-center gap-1.5 px-5 py-2 rounded-full overflow-hidden"
+                  style={{
+                    border: "2px solid var(--gold)",
+                    color: "var(--gold)",
+                    fontFamily: "var(--font-reem), sans-serif",
+                    fontSize: "0.875rem",
+                    letterSpacing: "0.06em",
+                    background: "transparent",
+                    boxShadow: "0 0 0 0 rgba(212,175,55,0)",
+                    transition: "box-shadow 0.3s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLElement).style.boxShadow =
+                      "0 4px 20px rgba(212,175,55,0.35), inset 0 0 16px rgba(212,175,55,0.08)";
+                    (e.currentTarget as HTMLElement).style.background =
+                      "rgba(212,175,55,0.08)";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLElement).style.boxShadow = "none";
+                    (e.currentTarget as HTMLElement).style.background = "transparent";
+                  }}
+                >
+                  <PenLine className="w-3.5 h-3.5" strokeWidth={1.8} />
+                  <span>اكتب</span>
+                  <span className="text-xs opacity-60 ml-0.5">Write</span>
+                </motion.button>
+              </Link>
             </div>
 
             {/* Mobile hamburger */}
