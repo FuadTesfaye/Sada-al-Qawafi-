@@ -25,8 +25,8 @@ export default function ScribeSidebar({ activeTab, setActiveTab }: ScribeSidebar
 
   const menuItems = [
     { id: "all", label: "The Diwan", icon: BookOpen, href: "/feed" },
-    { id: "following", label: "Circle of Peers", icon: Users, href: "/feed" },
-    { id: "trending", label: "Echoing Verses", icon: TrendingUp, href: "/feed" },
+    { id: "following", label: "Circle of Peers", icon: Users, href: "/peers" },
+    { id: "trending", label: "Echoing Verses", icon: TrendingUp, href: "/trending" },
   ];
 
   const archiveItems = [
