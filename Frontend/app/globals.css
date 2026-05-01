@@ -28,19 +28,43 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--font-amiri), serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Crumpled Paper Texture Overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-color: var(--paper);
+  background-image: 
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.01' numOctaves='5' stitchTiles='stitch'/%3E%3CfeDiffuseLighting in='noise' lighting-color='%23F5E6C4' surfaceScale='3'%3E%3CfeDistantLight azimuth='45' elevation='50'/%3E%3C/feDiffuseLighting%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.9;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+/* Aged Vignette Overlay */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(circle at center, transparent 30%, rgba(0,0,0,0.03) 100%);
+}
+
+/* Subtle Ink Bleed Effect for Headings */
+h1, h2, h3 {
+  text-shadow: 0.5px 0.5px 1px rgba(0,0,0,0.1), -0.5px -0.5px 0px rgba(255,255,255,0.3);
+  filter: blur(0.2px);
 }
 
 .paper-texture {
   position: relative;
-}
-
-.paper-texture::before {
-  content: "";
-  position: absolute;
-  inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
-  pointer-events: none;
-  opacity: 0.4;
 }
 
 @keyframes float {
@@ -59,4 +83,23 @@ body {
 
 .animate-ripple {
   animation: ripple 2s ease-out infinite;
+}
+
+/* Vintage Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--paper-aged);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--paper-dark);
+  border: 2px solid var(--paper-aged);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-dim);
 }

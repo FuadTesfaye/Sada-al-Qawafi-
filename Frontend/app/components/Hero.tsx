@@ -184,23 +184,26 @@ function Navbar() {
 
             {/* Logo */}
             <a href="/" className="flex items-center gap-2.5 group" aria-label="Sada al-Qawafi Home">
-              <motion.span
+              <motion.div
                 whileHover={{ rotate: -12, scale: 1.15 }}
                 transition={{ type: "spring" as const, stiffness: 300, damping: 15 }}
+                className="relative"
               >
-                <Feather className="w-[22px] h-[22px] text-gold" strokeWidth={1.6} />
-              </motion.span>
+                <Feather className="w-[26px] h-[26px] text-gold" strokeWidth={1.2} />
+                {/* Subtle ink blot behind logo */}
+                <div className="absolute inset-0 bg-ink-wet/5 blur-xl rounded-full -z-10" />
+              </motion.div>
               {/* English small-cap label + Arabic primary */}
-              <div className="flex flex-col leading-none -space-y-0.5">
+              <div className="flex flex-col leading-none -space-y-1">
                 <span
-                  className="font-heading text-[11px] tracking-[0.18em] text-ink-faded uppercase"
+                  className="font-heading text-[10px] tracking-[0.3em] text-gold-dim uppercase font-bold"
                   style={{ fontFamily: "var(--font-amiri), serif" }}
                 >
                   Sada al-Qawafi
                 </span>
                 <span
-                  className="text-[22px] font-bold text-ink-wet"
-                  style={{ fontFamily: "var(--font-reem), sans-serif" }}
+                  className="text-[26px] font-bold text-ink-wet tracking-tight"
+                  style={{ fontFamily: "var(--font-reem), sans-serif", filter: "drop-shadow(1px 1px 0px rgba(255,255,255,0.4))" }}
                 >
                   صدى القوافي
                 </span>
@@ -617,7 +620,18 @@ function HeroSection() {
         className="absolute inset-0 pointer-events-none z-0"
         style={{
           background:
-            "radial-gradient(ellipse 90% 80% at 50% 50%, transparent 50%, rgba(180,155,110,0.25) 100%)",
+            "radial-gradient(ellipse 90% 80% at 50% 50%, transparent 40%, rgba(139,115,80,0.3) 100%)",
+          boxShadow: "inset 0 0 100px rgba(0,0,0,0.15)",
+        }}
+      />
+
+      {/* Torn Paper Edge Bottom */}
+      <div 
+        className="absolute bottom-0 left-0 right-0 h-16 z-20 pointer-events-none"
+        style={{
+          background: "var(--paper)",
+          clipPath: "polygon(0% 100%, 100% 100%, 100% 20%, 98% 25%, 95% 15%, 92% 30%, 88% 10%, 85% 25%, 82% 15%, 78% 35%, 75% 10%, 72% 25%, 68% 15%, 65% 30%, 62% 10%, 58% 25%, 55% 15%, 52% 35%, 48% 10%, 45% 25%, 42% 15%, 38% 30%, 35% 10%, 32% 25%, 28% 15%, 25% 35%, 22% 10%, 18% 25%, 15% 15%, 12% 30%, 8% 10%, 5% 25%, 2% 15%, 0% 30%)",
+          filter: "drop-shadow(0 -5px 10px rgba(0,0,0,0.1))",
         }}
       />
 
