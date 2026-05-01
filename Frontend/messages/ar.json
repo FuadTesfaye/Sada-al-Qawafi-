@@ -70,5 +70,13 @@
       "trending": "أبيات رائجة",
       "circles": "حلقات أدبية"
     }
+  },
+  "Profile": {
+    "title": "ختم الكاتب",
+    "manuscripts": "المخطوطات",
+    "followers": "المتابعون",
+    "following": "يتابع",
+    "edit": "تعديل الختم",
+    "joined": "انضم"
   }
 }

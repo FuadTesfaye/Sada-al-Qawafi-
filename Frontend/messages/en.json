@@ -70,5 +70,13 @@
       "trending": "Trending Verses",
       "circles": "Poetic Circles"
     }
+  },
+  "Profile": {
+    "title": "Scribe's Seal",
+    "manuscripts": "Manuscripts",
+    "followers": "Followers",
+    "following": "Following",
+    "edit": "Edit Seal",
+    "joined": "Joined"
   }
 }
