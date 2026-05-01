@@ -31,9 +31,9 @@ export default function ScribeSidebar({ activeTab, setActiveTab }: ScribeSidebar
 
   const archiveItems = [
     { id: "profile", label: "My Profile", icon: UserIcon, href: "/profile" },
-    { id: "manuscripts", label: "My Manuscripts", icon: Library, href: "/profile" },
-    { id: "notifications", label: "Echoes (Alerts)", icon: Bell, href: "#" },
-    { id: "settings", label: "Scribe Settings", icon: Settings, href: "#" },
+    { id: "manuscripts", label: "My Manuscripts", icon: Library, href: "/manuscripts" },
+    { id: "notifications", label: "Echoes (Alerts)", icon: Bell, href: "/notifications" },
+    { id: "settings", label: "Scribe Settings", icon: Settings, href: "/settings" },
   ];
 
   return (
