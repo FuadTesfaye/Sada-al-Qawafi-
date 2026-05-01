@@ -55,5 +55,20 @@
     "signUp": "Initiate Membership",
     "alreadyMember": "Already a Scribe?",
     "signIn": "Sign In"
+  },
+  "Feed": {
+    "title": "The Diwan Feed",
+    "subtitle": "Latest verses from the global circle of scribes",
+    "search": "Search archives...",
+    "postPrompt": "Dip your pen and write...",
+    "echo": "Echo",
+    "recite": "Recite",
+    "scribe": "Scribe",
+    "sidebar": {
+      "library": "Your Library",
+      "following": "Followed Poets",
+      "trending": "Trending Verses",
+      "circles": "Poetic Circles"
+    }
   }
 }

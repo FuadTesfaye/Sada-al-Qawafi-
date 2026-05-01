@@ -3,11 +3,12 @@
 import { motion } from "framer-motion";
 import { Feather, Mail, Lock, ArrowRight, Home } from "lucide-react";
 import { useTranslations, useLocale } from 'next-intl';
-import { Link } from '@/i18n/routing';
+import { Link, useRouter } from '@/i18n/routing';
 
 export default function LoginPage() {
   const t = useTranslations('Login');
   const locale = useLocale();
+  const router = useRouter();
 
   return (
     <main className="min-h-screen flex items-center justify-center p-6 relative overflow-hidden">
@@ -61,7 +62,13 @@ export default function LoginPage() {
           </div>
 
           {/* Form */}
-          <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
+          <form 
+            className="space-y-8" 
+            onSubmit={(e) => {
+              e.preventDefault();
+              router.push('/feed');
+            }}
+          >
             <div className="space-y-1">
               <label className="text-[10px] uppercase tracking-[0.3em] text-gold-dim font-bold block mb-2 px-1">
                 {t('email')}
